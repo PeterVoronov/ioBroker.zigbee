@@ -449,8 +449,6 @@ class Zigbee extends utils.Adapter {
         const mappedModel = entity.mapped;
         this.log.debug('Mapped Model: ' +  JSON.stringify(mappedModel));
 
-        this.log.debug('stateList: ' +  JSON.stringify(stateList));
-
         stateList.forEach(async(changedState) => {
             const stateDesc = changedState.stateDesc;
             const value = changedState.value;
