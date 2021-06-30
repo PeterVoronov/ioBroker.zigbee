@@ -455,9 +455,6 @@ class Zigbee extends utils.Adapter {
             const stateDesc = changedState.stateDesc;
             const value = changedState.value;
 
-            this.log.debug('changedState: ' +  JSON.stringify(changedState));
-            this.log.debug('stateDesc: ' +  JSON.stringify(stateDesc));
-
             if (stateDesc.isOption) {
                 // acknowledge state with given value
                 this.acknowledgeState(deviceId, model, stateDesc, value);
