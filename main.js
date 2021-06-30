@@ -449,9 +449,14 @@ class Zigbee extends utils.Adapter {
         const mappedModel = entity.mapped;
         this.log.debug('Mapped Model: ' +  JSON.stringify(mappedModel));
 
+        this.log.debug('stateList: ' +  JSON.stringify(stateList));
+
         stateList.forEach(async(changedState) => {
             const stateDesc = changedState.stateDesc;
             const value = changedState.value;
+
+            this.log.debug('changedState: ' +  JSON.stringify(changedState));
+            this.log.debug('stateDesc: ' +  JSON.stringify(stateDesc));
 
             if (stateDesc.isOption) {
                 // acknowledge state with given value
@@ -493,7 +498,7 @@ class Zigbee extends utils.Adapter {
             }
             const converter = mappedModel.toZigbee.find((c) => c && (c.key.includes(stateDesc.prop) || c.key.includes(stateDesc.setattr) || c.key.includes(stateDesc.id)));
             if (!converter) {
-                this.log.error(`No converter available for '${model}' with key '${stateDesc.id}' `);
+                this.log.error(`No converter available for '${model}' with keys: prop = '${stateDesc.prop}', setattr = '${stateDesc.setattr}', id = '${stateDesc.id}' `);
                 return;
             }
 
