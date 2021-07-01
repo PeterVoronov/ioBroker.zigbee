@@ -511,7 +511,7 @@ class Zigbee extends utils.Adapter {
 
             const epName = stateDesc.epname !== undefined ? stateDesc.epname : (stateDesc.prop || stateDesc.id);
             const key = stateDesc.setattr || stateDesc.prop || stateDesc.id;
-            this.log.debug(`convert ${key}, ${preparedValue}, ${safeJsonStringify(preparedOptions)}`);
+            this.log.debug(`convert ${key}, ${safeJsonStringify(preparedValue)}, ${safeJsonStringify(preparedOptions)}`);
 
             let target;
             if (model === 'group') {
